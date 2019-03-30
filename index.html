@@ -1,9 +1,22 @@
 <!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Hello World! Site Title</title>
-  </head> 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+---
+layout: default
+pagination:
+  enabled: true
+---
+<!-- The main content area -->
+<div class="posts">
+  <div class="grid-xlarge">
+    <div class="posts__container" itemscope itemtype="http://schema.org/Blog" data-columns>
+
+      {% for post in paginator.posts %}
+
+        <!-- The tag below includes the markup for each post - partials/post-card.html -->
+        {% include post-card.html %}
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include pagination.html %}
+</div>
